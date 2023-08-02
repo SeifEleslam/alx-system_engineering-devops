@@ -1,2 +1,2 @@
-# printing the full path of the current dir
+#!/bin/bash
 pwd
