@@ -1,0 +1,2 @@
+#!/bin/bash
+find Downloads -mindepth 1 -type d | wc -l
