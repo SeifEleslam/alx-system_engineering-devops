@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Create the file name
+filename="\*\\'"Best School"\'\\*$\?\*\*\*\*\*:)"
+
+# Create the file
+touch "$filename"
+
+# Write the text to the file
+echo "Best School" >> "$filename"
