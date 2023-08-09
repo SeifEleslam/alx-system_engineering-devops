@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(tr '[a-m][n-z]' '[n-z][a-m]' <<< "$(cat "$1")")
+echo -n $(tr '[a-m][n-z]' '[n-z][a-m]' <<< "$(cat "$1")")
