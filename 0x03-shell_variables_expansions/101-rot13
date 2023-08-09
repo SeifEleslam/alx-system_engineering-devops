@@ -1,2 +1,2 @@
 #!/bin/bash
-cat | echo $(tr '[a-m][n-z]' '[n-z][a-m]') 
+cat | echo -n $(tr -s '[a-m][n-z]' '[n-z][a-m]') 
