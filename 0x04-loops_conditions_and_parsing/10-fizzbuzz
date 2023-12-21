@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#print "Best School" 10 times using while and say hi in 9
+h=1;
+while [ $h -lt 101 ]
+do
+    if [[ $(( h % 3 )) -eq 0 && $(( h % 5 )) -eq 0 ]]; then
+        echo "FizzBuzz";
+    elif [ $(( h % 3 )) -eq 0 ]; then
+        echo "Fizz";
+    elif [ $(( h % 5 )) -eq 0 ]; then
+        echo "Buzz";
+    else
+        echo "$h";
+    fi
+    ((h++));
+done;
