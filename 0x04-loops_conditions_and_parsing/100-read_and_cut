@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#print "Best School" 10 times using while and say hi in 9
+while read -r line; do
+  echo "$line" | cut -d ":" -f 1,3,6
+done < /etc/passwd
