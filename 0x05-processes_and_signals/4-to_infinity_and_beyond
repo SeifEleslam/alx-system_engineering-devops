@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Display all processes data
+while [ 0 -lt 1 ]
+do
+    echo To infinity and beyond;
+    sleep 2;
+done
