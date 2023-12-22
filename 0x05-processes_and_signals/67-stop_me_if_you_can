@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Display all processes data
+pkill -f "./7-highlander"
