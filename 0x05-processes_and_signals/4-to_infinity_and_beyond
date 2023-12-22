@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #Display all processes data
-while [ 0 -lt 1 ]
+while true
 do
     echo To infinity and beyond;
     sleep 2;
