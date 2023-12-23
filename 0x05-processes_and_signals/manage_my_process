@@ -1,19 +1,10 @@
 #!/usr/bin/env bash
 #Display all processes data
-start() {
-    bash ./101-manage_my_process
-}
-stop() {
-    pkill -f "./101-manage_my_process"
-}
-
-
-if [[ $1 == "start" ]]; then
-    start
-elif [[ $1 == "stop" ]]; then
-    stop
-elif [[ $1 == "restart" ]]; then
-    stop && start;
-else
-    echo "Usage: manage_my_process {start|stop|restart}"
-fi
+trap 'echo "I hate the kill command"; exit;' SIGTERM
+trap 'exit;' SIGQUIT 
+trap 'echo Y U no love me?!' SIGINT
+while true
+do
+    echo I am alive! >> /tmp/my_process;
+    sleep 2;
+done

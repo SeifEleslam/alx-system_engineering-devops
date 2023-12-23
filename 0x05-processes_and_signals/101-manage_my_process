@@ -1,11 +1,31 @@
 #!/usr/bin/env bash
 #Display all processes data
-trap 'echo "I hate the kill command"; rm /var/run/my_process.pid; exit;' SIGTERM
-trap 'rm /var/run/my_process.pid; exit;' SIGQUIT 
-trap 'echo Y U no love me?!' SIGINT
-echo $$ >| /var/run/my_process.pid
-while true
-do
-    echo I am alive! > /tmp/my_process;
-    sleep 2;
-done
+
+
+start() {
+    bash ./manage_my_process &
+    echo $! >| /var/run/my_process.pid
+    echo manage_my_process started
+}
+stop() {
+    pkill -f "./manage_my_process"
+    rm /var/run/my_process.pid
+    echo manage_my_process stopped
+}
+restart(){
+    pkill -f "./manage_my_process"
+    rm /var/run/my_process.pid
+    bash ./manage_my_process &
+    echo $! >| /var/run/my_process.pid
+    echo manage_my_process restarted
+}
+
+if [[ $1 == "start" ]]; then
+    start
+elif [[ $1 == "stop" ]]; then
+    stop
+elif [[ $1 == "restart" ]]; then
+    restart
+else
+    echo "Usage: manage_my_process {start|stop|restart}"
+fi
