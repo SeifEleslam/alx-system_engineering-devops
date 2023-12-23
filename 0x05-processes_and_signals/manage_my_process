@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#Display all processes data
+start() {
+    bash ./101-manage_my_process
+}
+stop() {
+    pkill -f "./101-manage_my_process"
+}
+
+
+if [[ $1 == "start" ]]; then
+    start
+elif [[ $1 == "stop" ]]; then
+    stop
+elif [[ $1 == "restart" ]]; then
+    stop && start;
+else
+    echo "Usage: manage_my_process {start|stop|restart}"
+fi

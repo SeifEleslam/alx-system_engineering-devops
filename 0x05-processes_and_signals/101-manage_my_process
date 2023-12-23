@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Display all processes data
+trap 'echo "I hate the kill command"; rm /var/run/my_process.pid; exit;' SIGTERM
+trap 'rm /var/run/my_process.pid; exit;' SIGQUIT 
+trap 'echo Y U no love me?!' SIGINT
+echo $$ > /var/run/my_process.pid
+while true
+do
+    echo To infinity and beyond;
+    sleep 2;
+done
