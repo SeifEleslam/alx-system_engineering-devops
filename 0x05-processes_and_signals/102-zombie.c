@@ -4,6 +4,7 @@
 #include <unistd.h>
 /**
  * infinite_while - loop for infinity
+ * Return: 0 if you can
  */
 int infinite_while(void)
 {
@@ -15,16 +16,17 @@ int infinite_while(void)
 }
 
 /**
- * infinite_while - loop for infinity
+ * main - loop for infinity
  * Return: 0 on success
  */
 int main(void)
 {
 	int i;
+	pid_t child_pid;
 
 	for (i = 0; i < 5; i++)
 	{
-		pid_t child_pid = fork();
+		child_pid = fork();
 		if (child_pid == 0)
 			exit(0);
 		else
