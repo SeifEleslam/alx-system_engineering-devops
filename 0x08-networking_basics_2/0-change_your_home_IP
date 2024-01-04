@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Config ip with host name
+cp /etc/hosts ~/temp
+sed -i s/127.0.0.2/127.0.0.1/g ~/temp
+echo "8.8.8.8 facebook.com" >> ~/temp
+cp -f ~/temp /etc/hosts
+rm -rf ~/temp
