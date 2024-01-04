@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #display listing ports and PIDs
-if [!$1];then
+if [ $# -ne 1 ];then
     echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}";
 else
     ping $1 -c 5;
