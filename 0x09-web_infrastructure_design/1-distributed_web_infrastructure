@@ -1,3 +1,6 @@
+Infrastructure Diagram Available At:
+https://drive.google.com/file/d/1pjiAYUJeR3PLVA1uHUsEChXuzI0b6rjI/view?usp=sharing
+
 Used Infrastructure:
 
 3 servers
@@ -7,9 +10,6 @@ Used Infrastructure:
 2 application files (your code base)
 2 database (MySQL)
 1 domain name foobar.com configured with a www record that points to your server IP 8.8.8.8
-
-Infrastructure Diagram Available At:
-https://drive.google.com/file/d/1sqtoiVKL2jzaJX268gY0bLOWslHZZeiz/view?usp=sharing
 
 New Added Components and their roles:
 
@@ -34,9 +34,6 @@ New Added Components and their roles:
 Overview:
 
 The new infrastructure consists of 3 servers (2 active servers and 1 passive server). The HAProxy is used as the Load Balancer which distributes incoming requests between both active servers with the goal is to create an infrastructure that provide high availability, fault tolerance, and scalability. The new infrastructure tried to eliminate SPOF, and was able to minimize it, but having only one load balancer is considered a SPOF.
-
-What is a server:
-The core server provide the hardware and software needed for running web server, application server, and database connection
 
 Workflow Changes:
 

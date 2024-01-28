@@ -1,3 +1,6 @@
+Infrastructure Diagram Available At:
+https://drive.google.com/file/d/1GHnEnA385mFoX_-2seWro9WQpQU9OCCD/view?usp=sharing
+
 Used Infrastructure:
 
 1 server
@@ -6,9 +9,6 @@ Used Infrastructure:
 1 application files (your code base)
 1 database (MySQL)
 1 domain name foobar.com configured with a www record that points to your server IP 8.8.8.8
-
-Infrastructure Diagram Available At:
-https://drive.google.com/file/d/1GHnEnA385mFoX_-2seWro9WQpQU9OCCD/view?usp=sharing
 
 Overview:
 

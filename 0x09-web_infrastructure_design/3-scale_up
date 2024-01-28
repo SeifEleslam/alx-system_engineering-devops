@@ -1,0 +1,30 @@
+Infrastructure Diagram Available At:
+https://drive.google.com/file/d/1Y5i6p9Wp160gOBLFm389ad6j1g-sHTFv/view?usp=sharing
+
+Used Infrastructure:
+
+4 servers
+2 load-balancer (HAproxy)
+2 web server (Nginx)
+2 application server
+2 application files (your code base)
+2 database (MySQL)
+3 monitors
+3 firewalls
+1 SSL certificate
+1 domain name foobar.com configured with a www record that points to your server IP 8.8.8.8
+
+New Added Components and their roles:
+
+- 1 server:
+  Now that we are spiting the components of servers in 3 servers we need a new server to act as passive server in case of the failure of one of the active servers
+
+- 1 load balancer:
+  Using one load balancer is considered a SPOF as discussed in previous tasks. So adding another will eliminate the problem and also increase the availability of the website and its ability to maintain higher traffics
+
+- Spiting components to different servers:
+  Splitting components to different servers enhance the performance of the server by making it focus on only one type of operations. It also increase the availability as the failure of one component will not cause the failure of the whole server or affect the workflow.
+
+Workflow Changes:
+
+- There is nothing changed in the workflow, however, availability and scalability should be increased
