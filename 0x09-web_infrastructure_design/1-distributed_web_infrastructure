@@ -1,0 +1,59 @@
+Used Infrastructure:
+
+3 servers
+1 load-balancer (HAproxy)
+2 web server (Nginx)
+2 application server
+2 application files (your code base)
+2 database (MySQL)
+1 domain name foobar.com configured with a www record that points to your server IP 8.8.8.8
+
+Infrastructure Diagram Available At:
+https://drive.google.com/file/d/1sqtoiVKL2jzaJX268gY0bLOWslHZZeiz/view?usp=sharing
+
+New Added Components and their roles:
+
+- 2 servers:
+  Adding two new servers increase the availability of the website and decrease the downtime that it could face and provide the hardware and software resources needed by the website to handle high traffics and work in larger scale. It also minimize the SPOF in the system
+
+- 1 web server (Nginx):
+  Adding a web server also increase the availability of the website and make it able to handle higher traffics with the help of the new added application server and load balancer. It also minimize the SPOF in the system.
+
+- 1 application server
+  Same as web server, adding another application server increase the availability of the website and decrease SPOF in the system.
+
+- 1 load-balancer (HAproxy)
+  It work with other added components to distribute load over more than one server for better performance, availability, scalability, and maintenance.
+
+- 1 set of application files (your code base)
+  A new set of application files helps to make the new added application server has its own code base, which make it possible to update an application server while the other is working to decrease the downtime.
+
+- 1 database (MySQL)
+  A new added database works as a replica database that is synchronized with main database to make sure that the database is available in case of failure of one of the databases. It also works aside with the added components to maintain high traffics
+
+Overview:
+
+The new infrastructure consists of 3 servers (2 active servers and 1 passive server). The HAProxy is used as the Load Balancer which distributes incoming requests between both active servers with the goal is to create an infrastructure that provide high availability, fault tolerance, and scalability. The new infrastructure tried to eliminate SPOF, and was able to minimize it, but having only one load balancer is considered a SPOF.
+
+What is a server:
+The core server provide the hardware and software needed for running web server, application server, and database connection
+
+Workflow Changes:
+
+- There is no changes in DNS part
+- After sending the HTTP request to The website, the request is handled by load balancer.
+- Load balancer decide which server should handle the received request.
+  - The load balancer will check if any of the available server are down or not. If yes then it will send the request to the other
+  - If both are running the the load balancer will decide which one is more suitable to handle the request.
+  - There are several algorithms offered by (HAproxy) to distribute load through servers. These algorithms includes Round Robin, Least Connections, etc...
+- If one of the server gone down the passive server should be able to take it's place.
+- the rest of the process is similar to the Single Server setup discussed in the previous task.
+
+Issues
+
+- Single Point Of Failure (SPOF):
+  The setup still has a SPOF as there is one load balancer. In case the failure of this load balancer the whole website will fail.
+- Lacking firewalls and HTTPS:
+  Another major issue with the current setup that it doesn't contain any firewalls, which secure the network from unauthorized access or malicious attacks. Additionally, there isn’t any security license or secured connection to encrypt data so important data could be leaked.
+- No Monitoring:
+  Having no monitoring strategy makes the challenges that faces the infrastructure even harder to manage or detect. This can lead to unnoticed issues that could potentially cause downtime

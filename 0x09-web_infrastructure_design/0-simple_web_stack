@@ -8,6 +8,7 @@ Used Infrastructure:
 1 domain name foobar.com configured with a www record that points to your server IP 8.8.8.8
 
 Infrastructure Diagram Available At:
+https://drive.google.com/file/d/1GHnEnA385mFoX_-2seWro9WQpQU9OCCD/view?usp=sharing
 
 Overview:
 
@@ -20,7 +21,7 @@ Workflow:
 
 - The user visits the website at http://www.foobar.com/
   - If the IP addressed is cached in the user browser or device the cached IP is used.
-  - If not, The IP is accessed using DNS using the A record type.
+  - If not, The IP (8.8.8.8) is accessed using DNS using the A record type.
 - Nginx receives the HTTP request and forwards it to the application server if necessary.
   - If no forwarding is required, Nginx serves static content from its own file system. This includes HTML pages, images, CSS, JavaScript, etc.
   - If there are no requests being made to the application server, then Nginx will serve up static content from its cache or generate it on the fly from the application files.
