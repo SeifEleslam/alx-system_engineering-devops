@@ -12,10 +12,16 @@ Used Infrastructure:
 
 Overview:
 
-The infrastructure consists of one physical server, which mean that there is only one software and hardware source of resources to serve the foobar.com website. This include serving the Nginx (the web server) and the application server for executing the code base, where the data of the website are stored and maintained using MySQL database.
+The infrastructure consists of one physical server, which
+mean that there is only one software and hardware source of
+resources to serve the foobar.com website. This include
+serving the Nginx (the web server) and the application
+server for executing the code base, where the data of the
+website are stored and maintained using MySQL database.
 
 What is a server:
-The core server provide the hardware and software needed for running web server, application server, and database connection
+The core server provide the hardware and software needed for
+running web server, application server, and database connection
 
 Workflow:
 
@@ -33,9 +39,19 @@ Workflow:
 Issues
 
 - Single Point Of Failure (SPOF):
-  As the core SERVER is the only source of the resources of th this website any failure in this server will cause a failure to the whole website.
-  The same applies to WEB SERVER, APPLICATION SERVER, and DATABASE.
+  As the core SERVER is the only source of the resources of
+  th this website any failure in this server will cause a
+  failure to the whole website. The same applies to WEB SERVER, APPLICATION SERVER, and DATABASE.
 - Downtime because of Maintenance:
-  while maintaining your website like adding new features or fixing some bugs you may need to restart server. Having only one server for serving the website will cause downtime while the server restart.
+  while maintaining your website like adding new features or
+  fixing some bugs you may need to restart server.
+  Having only one server for serving the website will cause downtime while the server restart.
 - Scaling Limitation for high traffics:
-  As the server has more traffics it needs more resources to be able to serve users' requests. A solution could be providing better resources for the same server like higher CPU and more RAM. The problem with this solution that it has limitation as it has higher costs and more limited functionality increase. And at some point it will be not even possible to increase the resources for the same server (Reached the highest physical technologies available in the market).
+  As the server has more traffics it needs more resources to
+  be able to serve users' requests. A solution could be
+  providing better resources for the same server like higher
+  CPU and more RAM. The problem with this solution that it
+  has limitation as it has higher costs and more limited
+  functionality increase. And at some point it will be not
+  even possible to increase the resources for the same
+  server (Reached the highest physical technologies available in the market).

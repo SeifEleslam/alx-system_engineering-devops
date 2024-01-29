@@ -17,17 +17,28 @@ Used Infrastructure:
 New Added Components and their roles:
 
 - 3 firewalls:
-  The firewalls at each server is an essential security act to protect the infrastructure from external threats, such as DDoS attacks or unauthorized access.
+  The firewalls at each server is an essential security act
+  to protect the infrastructure from external threats, such
+  as DDoS attacks or unauthorized access.
 
 - 1 web SSL certificate:
-  The SSL certificate add another layer of security by encrusting the data sent between client browser and server, making it harder for hackers to intercept the communication.
+  The SSL certificate add another layer of security by
+  encrusting the data sent between client browser and
+  server, making it harder for hackers to intercept the
+  communication.
 
 - 3 monitoring clients
-  The 3 monitoring clients are responsible for collecting metrics from the various components of the infrastructure to be able to understand problems with infrastructure and detect possible threats
+  The 3 monitoring clients are responsible for collecting
+  metrics from the various components of the infrastructure
+  to be able to understand problems with infrastructure and
+  detect possible threats
 
 Overview:
 
-The new added components to the infrastructure are mainly focus on enhancing the security of the setup by adding firewalls and SSL certificate. Monitoring clients also could help with the security and with tracking the setup performance and flaws.
+The new added components to the infrastructure are mainly
+focus on enhancing the security of the setup by adding
+firewalls and SSL certificate. Monitoring clients also could
+help with the security and with tracking the setup performance and flaws.
 
 Workflow Changes:
 
@@ -38,8 +49,18 @@ Workflow Changes:
 Issues
 
 - Terminating SSL at the load balancer level:
-  Terminating SSL at the load balancer level could cause an issue as it overhead load balancer with processes, which could affect performance in high traffic. Especially that this infrastructure only contain one load balancer. Also having the data between servers and load balancer unencrypted may raise security issues.
+  Terminating SSL at the load balancer level could cause an
+  issue as it overhead load balancer with processes, which
+  could affect performance in high traffic. Especially that
+  this infrastructure only contain one load balancer. Also
+  having the data between servers and load balancer unencrypted may raise security issues.
 - Having only one database connection that accepts writing:
-  Having only one database connection that accepts writing could overhead this connection in case of high load traffics on writing operation. More important the failure of this database connection mean downtime for all writing operations
+  Having only one database connection that accepts writing
+  could overhead this connection in case of high load
+  traffics on writing operation. More important the failure
+  of this database connection mean downtime for all writing operations
 - Servers with all the same components:
-  Having servers with all the same components means that the failure of one component in the server cause the failure of the whole server. It also mean managing all kind of different operations and logics instead of focusing on one mission, which may affect performance.
+  Having servers with all the same components means that the
+  failure of one component in the server cause the failure
+  of the whole server. It also mean managing all kind of
+  different operations and logics instead of focusing on one mission, which may affect performance.

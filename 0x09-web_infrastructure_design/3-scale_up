@@ -17,13 +17,20 @@ Used Infrastructure:
 New Added Components and their roles:
 
 - 1 server:
-  Now that we are spiting the components of servers in 3 servers we need a new server to act as passive server in case of the failure of one of the active servers
+  Now that we are spiting the components of servers in 3
+  serverswe need a new server to act as passive server in
+  case of the failure of one of the active servers
 
 - 1 load balancer:
-  Using one load balancer is considered a SPOF as discussed in previous tasks. So adding another will eliminate the problem and also increase the availability of the website and its ability to maintain higher traffics
+  Using one load balancer is considered a SPOF as discussed
+  in previous tasks. So adding another will eliminate the
+  problem and also increase the availability of the website and its ability to maintain higher traffics
 
 - Spiting components to different servers:
-  Splitting components to different servers enhance the performance of the server by making it focus on only one type of operations. It also increase the availability as the failure of one component will not cause the failure of the whole server or affect the workflow.
+  Splitting components to different servers enhance the
+  performance of the server by making it focus on only one
+  type of operations. It also increase the availability as
+  the failure of one component will not cause the failure of the whole server or affect the workflow.
 
 Workflow Changes:
 
