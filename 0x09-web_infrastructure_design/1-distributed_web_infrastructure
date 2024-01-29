@@ -14,26 +14,48 @@ Used Infrastructure:
 New Added Components and their roles:
 
 - 2 servers:
-  Adding two new servers increase the availability of the website and decrease the downtime that it could face and provide the hardware and software resources needed by the website to handle high traffics and work in larger scale. It also minimize the SPOF in the system
+  Adding two new servers increase the availability of the
+  website and decrease the downtime that it could face and
+  provide the hardware and software resources needed by the
+  website to handle high traffics and work in larger scale
+  It also minimize the SPOF in the system
 
 - 1 web server (Nginx):
-  Adding a web server also increase the availability of the website and make it able to handle higher traffics with the help of the new added application server and load balancer. It also minimize the SPOF in the system.
+  Adding a web server also increase the availability of the
+  website and make it able to handle higher traffics with
+  the help of the new added application server and load
+  balancer. It also minimize the SPOF in the system.
 
 - 1 application server
-  Same as web server, adding another application server increase the availability of the website and decrease SPOF in the system.
+  Same as web server, adding another application server
+  increase the availability of the website and decrease SPOF in the system.
 
 - 1 load-balancer (HAproxy)
-  It work with other added components to distribute load over more than one server for better performance, availability, scalability, and maintenance.
+  It work with other added components to distribute load
+  over more than one server for better performance
+  availability, scalability, and maintenance.
 
 - 1 set of application files (your code base)
-  A new set of application files helps to make the new added application server has its own code base, which make it possible to update an application server while the other is working to decrease the downtime.
+  A new set of application files helps to make the new added
+  application server has its own code base, which make it
+  possible to update an application server while the other
+  is working to decrease the downtime.
 
 - 1 database (MySQL)
-  A new added database works as a replica database that is synchronized with main database to make sure that the database is available in case of failure of one of the databases. It also works aside with the added components to maintain high traffics
+  A new added database works as a replica database that is
+  synchronized with main database to make sure that the
+  database is available in case of failure of one of the
+  databases. It also works aside with the added components to maintain high traffics
 
 Overview:
 
-The new infrastructure consists of 3 servers (2 active servers and 1 passive server). The HAProxy is used as the Load Balancer which distributes incoming requests between both active servers with the goal is to create an infrastructure that provide high availability, fault tolerance, and scalability. The new infrastructure tried to eliminate SPOF, and was able to minimize it, but having only one load balancer is considered a SPOF.
+The new infrastructure consists of 3 servers (2 active
+servers and 1 passive server). The HAProxy is used as the
+Load Balancer which distributes incoming requests between
+both active servers with the goal is to create an
+infrastructure that provide high availability, fault
+tolerance, and scalability. The new infrastructure tried to
+eliminate SPOF, and was able to minimize it, but having only one load balancer is considered a SPOF.
 
 Workflow Changes:
 
@@ -49,8 +71,16 @@ Workflow Changes:
 Issues
 
 - Single Point Of Failure (SPOF):
-  The setup still has a SPOF as there is one load balancer. In case the failure of this load balancer the whole website will fail.
+  The setup still has a SPOF as there is one load balancer.
+  In case the failure of this load balancer the whole website will fail.
 - Lacking firewalls and HTTPS:
-  Another major issue with the current setup that it doesn't contain any firewalls, which secure the network from unauthorized access or malicious attacks. Additionally, there isn’t any security license or secured connection to encrypt data so important data could be leaked.
+  Another major issue with the current setup that it doesn't
+  contain any firewalls, which secure the network from
+  unauthorized access or malicious attacks. Additionally.
+  there isn’t any security license or secured connection to
+  encrypt data so important data could be leaked.
 - No Monitoring:
-  Having no monitoring strategy makes the challenges that faces the infrastructure even harder to manage or detect. This can lead to unnoticed issues that could potentially cause downtime
+  Having no monitoring strategy makes the challenges that
+  faces the infrastructure even harder to manage or detect.
+  This can lead to unnoticed issues that could potentially
+  cause downtime
