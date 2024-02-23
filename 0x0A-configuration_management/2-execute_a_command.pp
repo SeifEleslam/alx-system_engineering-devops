@@ -1,3 +1,3 @@
 # Kill it with puppet
-exec { 'pkill killmenow':
+exec { 'pkill -f killmenow':
 }
