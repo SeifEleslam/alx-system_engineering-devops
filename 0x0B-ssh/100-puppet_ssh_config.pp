@@ -1,9 +1,11 @@
 # Edit ssh configuration
-file_line { '/etc/ssh/ssh_config':
+file_line { 'SSHConfig[KeyPath]':
   ensure => present,
-  line   => 'IdentityFile ~/.ssh/id_rsa',
+  path   => '/etc/ssh/ssh_config',
+  line   => '    IdentityFile ~/.ssh/id_rsa',
 }
-file_line { '/etc/ssh/ssh_config':
+file_line { 'SSHConfig[NoPwd]':
   ensure => present,
-  line   => 'PasswordAuthentication no',
+  path   => '/etc/ssh/ssh_config',
+  line   => '    PasswordAuthentication no',
 }
