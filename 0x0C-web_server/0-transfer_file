@@ -20,7 +20,7 @@ fi
 
 # Secure copy with verbose output for easier troubleshooting
 # Check for successful transfer using exit code
-if ! scp -i "$path_to_ssh_key" "$local_file" "$username@$remote_ip:~/"; then
+if ! scp -i "$path_to_ssh_key" -o StrictHostKeyChecking=no "$local_file" "$username@$remote_ip:~/"; then
     echo "File transfer failed! Please check the server and your credentials."
     exit 1
 fi
