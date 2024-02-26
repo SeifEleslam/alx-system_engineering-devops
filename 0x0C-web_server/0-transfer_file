@@ -19,8 +19,6 @@ if [ ! -f "$local_file" ]; then
 fi
 
 # Secure copy with verbose output for easier troubleshooting
-scp -v -i "$path_to_ssh_key" "$local_file" "$username@$remote_ip:~/" 
-
 # Check for successful transfer using exit code
 if ! scp -v -i "$path_to_ssh_key" "$local_file" "$username@$remote_ip:~/"; then
     echo "File transfer failed! Please check the server and your credentials."
