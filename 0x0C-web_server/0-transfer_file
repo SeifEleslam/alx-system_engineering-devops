@@ -21,8 +21,8 @@ fi
 scp -v -i "$path_to_ssh_key" "$local_file" "$username@$remote_ip:~/" 
 
 # Check for successful transfer using exit code
-if [ $? -eq 0 ]; then
-    echo "File transfer successful!"
-else
+if ! scp -v -i "$path_to_ssh_key" "$local_file" "$username@$remote_ip:~/"; then
     echo "File transfer failed! Please check the server and your credentials."
+    exit 1
 fi
+echo "File transfer successful!"
