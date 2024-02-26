@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# transfer file form client to server
 
 # Check for required arguments
 if [ "$#" -ne 4 ]; then
