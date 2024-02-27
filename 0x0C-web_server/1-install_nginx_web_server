@@ -1,1 +1,21 @@
-quods.tech
+#!/usr/bin/env bash
+# install nginx and run it script
+
+# Update package lists and install Nginx
+apt update && apt install -y nginx
+
+if [[ ! -d /etc/nginx/html ]]; then
+    sudo mkdir -p /etc/nginx/html
+fi
+echo "Hello World" > /var/www/html/index.htm
+# Write the server configuration to the file
+echo "
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+}
+" > /etc/nginx/sites-available/default
+# Restart Nginx
+service nginx restart
