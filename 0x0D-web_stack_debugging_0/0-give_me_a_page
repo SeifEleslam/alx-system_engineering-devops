@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # Add text to html file
 echo "Hello Holberton" > /var/www/html/index.html
-# Start Apache2
 service apache2 restart
