@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # Add text to html file
+if [[ ! -d /var/www/html ]]; then
+    mkdir -p /var/www/html
+fi
 echo "Hello Holberton" > /var/www/html/index.html
 service apache2 restart
