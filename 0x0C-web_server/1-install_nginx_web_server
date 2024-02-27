@@ -7,7 +7,7 @@ apt update && apt install -y nginx
 if [[ ! -d /var/www/html ]]; then
     sudo mkdir -p /var/www/html
 fi
-echo "Hello World" > /var/www/html/index.htm
+echo "Hello World!" > /var/www/html/index.html
 # Write the server configuration to the file
 echo "
 server {
