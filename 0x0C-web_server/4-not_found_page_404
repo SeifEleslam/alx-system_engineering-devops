@@ -17,10 +17,10 @@ server {
     listen [::]:80 default_server;
     root /var/www/html;
     index index.html index.htm index.nginx-debian.html;
-    error_page 404 /404;
     location /redirect_me {
         rewrite ^ / permanent;
     }
+    error_page 404 /404.html;
 }
 " > /etc/nginx/sites-available/default
 
