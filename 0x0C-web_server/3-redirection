@@ -15,9 +15,6 @@ server {
     listen [::]:80 default_server;
     root /var/www/html;
     index index.html index.htm index.nginx-debian.html;
-    location /redirect_me {
-        rewrite ^ / permanent;
-    }
 }
 " > /etc/nginx/sites-available/default
 old_string = "    index index.html index.htm index.nginx-debian.html;";
@@ -26,6 +23,6 @@ new_string = "    index index.html index.htm index.nginx-debian.html;
         rewrite ^ / permanent;
     }
 "
-sed -i "s/index.nginx-debian.html;/$new_string/" /etc/nginx/sites-available/default
+sed -i "s/$old_string/$new_string/" /etc/nginx/sites-available/default
 # Restart Nginx
 service nginx restart
