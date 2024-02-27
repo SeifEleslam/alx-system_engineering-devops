@@ -17,8 +17,8 @@ server {
     index index.html index.htm index.nginx-debian.html;
 }
 " > /etc/nginx/sites-available/default
-old_string = "    index index.html index.htm index.nginx-debian.html;";
-new_string = "    index index.html index.htm index.nginx-debian.html;
+old_string="    index index.html index.htm index.nginx-debian.html;";
+new_string="    index index.html index.htm index.nginx-debian.html;
     location /redirect_me {
         rewrite ^ / permanent;
     }
