@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Add text to html file
+sudo su
 if [[ ! -d /var/www/html ]]; then
     mkdir -p /var/www/html
 fi
