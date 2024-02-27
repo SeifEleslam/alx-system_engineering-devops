@@ -18,4 +18,4 @@ server {
 }
 " > /etc/nginx/sites-available/default
 # Restart Nginx
-nginx -s reload
+# nginx -s reload
