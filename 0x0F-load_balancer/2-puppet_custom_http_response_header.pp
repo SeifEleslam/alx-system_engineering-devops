@@ -1,10 +1,6 @@
 # Install nginx with puppet
-exec { 'update':
-  command  => 'sudo apt-get update',
-  provider => shell,
-}
 
--> package { 'nginx' :
+package { 'nginx' :
   ensure   => latest,
 }
 
