@@ -33,7 +33,3 @@ server {
   ensure => running,
   enable => true,
 }
--> exec { 'restart service':
-  command  => 'sudo service nginx restart',
-  provider => shell,
-}
