@@ -1,5 +1,10 @@
 # Install nginx with puppet
-package { 'nginx' :
+exec { 'update':
+  command  => 'sudo apt-get update',
+  provider => shell,
+}
+
+-> package { 'nginx' :
   ensure   => latest,
 }
 
@@ -16,4 +21,8 @@ package { 'nginx' :
 -> service { 'nginx':
   ensure => running,
   enable => true,
+}
+-> exec { 'restart service':
+  command  => 'sudo service nginx restart',
+  provider => shell,
 }
