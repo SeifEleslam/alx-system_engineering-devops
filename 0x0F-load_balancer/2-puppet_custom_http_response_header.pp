@@ -5,12 +5,12 @@ exec { 'update':
 }
 
 # Install nginx with puppet
-package { 'nginx' :
+-> package { 'nginx' :
   ensure   => latest,
 }
 
 # Configure server
-file { '/etc/nginx/sites-available/default':
+-> file { '/etc/nginx/sites-available/default':
   ensure  => file,
   owner   => root,
   group   => root,
@@ -30,7 +30,7 @@ server {
 }
 
 # Restart Service
-service { 'nginx':
+-> service { 'nginx':
   ensure => running,
   enable => true,
 }
