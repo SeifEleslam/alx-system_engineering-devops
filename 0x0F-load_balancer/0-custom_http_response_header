@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# install nginx and run it script
+
+# Update package lists and install Nginx
+apt update && apt install -y nginx
+
+if [[ ! -d /var/www/html ]]; then
+    mkdir -p /var/www/html
+fi
+echo "Hello World!" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+
+# Write the server configuration to the file
+echo "
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    add_header X-Served-By $HOSTNAME;
+
+    location /redirect_me {
+        rewrite ^ / permanent;
+    }
+    error_page 404 /404.html;
+}
+" > /etc/nginx/sites-available/default
+
+# Restart Nginx
+service nginx restart
