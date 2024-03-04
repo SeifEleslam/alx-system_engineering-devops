@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2154 
+# install nginx and run it script
+
+# Update package lists and install haproxy
+apt update && apt install -y haproxy
+
+# Write the HAProxy configuration to the file
+echo "
+ENABLED=1
+" >> /etc/default/haproxy
+echo "
+
+frontend main
+    bind *:80
+    default_backend backend_servers
+
+backend backend_servers
+    balance roundrobin
+    server server1 100.26.160.239:80 weight 1
+    server server2 54.158.197.47:80 weight 1
+
+" >> /etc/haproxy/haproxy.cfg
+
+# Restart haproxy
+service haproxy restart
+
