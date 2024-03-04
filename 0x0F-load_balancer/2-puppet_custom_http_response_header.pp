@@ -14,18 +14,18 @@ file { '/etc/nginx/sites-available/default':
   owner   => root,
   group   => root,
   mode    => '0644',
-  content => '
+  content => "
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
     root /var/www/html;
     index index.html index.htm index.nginx-debian.html;
-    location /redirect_me {
-        rewrite ^ / permanent;
+    location / {
+        add_header X-Served-By ${hostname};
     }
     error_page 404 /404.html;
 }
-',
+",
 }
 
 # Restart Service
