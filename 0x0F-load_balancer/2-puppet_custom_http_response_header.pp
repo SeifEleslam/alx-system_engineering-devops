@@ -1,15 +1,16 @@
-# Install nginx with puppet
+# Update before installation
 exec { 'update':
   command  => 'apt-get update',
   provider => shell,
 }
 
--> package { 'nginx' :
+# Install nginx with puppet
+package { 'nginx' :
   ensure   => latest,
 }
 
 # Configure server
--> file { '/etc/nginx/sites-available/default':
+file { '/etc/nginx/sites-available/default':
   ensure  => file,
   owner   => root,
   group   => root,
@@ -29,7 +30,7 @@ server {
 }
 
 # Restart Service
--> service { 'nginx':
+service { 'nginx':
   ensure => running,
   enable => true,
 }
