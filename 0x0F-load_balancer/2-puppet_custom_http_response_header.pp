@@ -9,12 +9,23 @@ exec { 'update':
 }
 
 # Configure server
--> file_line { 'header line':
-  ensure => present,
-  path   => '/etc/nginx/sites-available/default',
-  line   => "	location / {
-  add_header X-Served-By ${hostname};",
-  match  => '^\tlocation / {',
+file { '/etc/nginx/sites-available/default':
+  ensure  => file,
+  owner   => root,
+  group   => root,
+  mode    => '0644',
+  content => '
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    location /redirect_me {
+        rewrite ^ / permanent;
+    }
+    error_page 404 /404.html;
+}
+',
 }
 
 # Restart Service
