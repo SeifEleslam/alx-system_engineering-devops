@@ -21,10 +21,6 @@ server {
     location / {
         add_header X-Served-By $HOSTNAME;
     }
-    location /redirect_me {
-        rewrite ^ / permanent;
-    }
-    error_page 404 /404.html;
 }
 " > /etc/nginx/sites-available/default
 
