@@ -4,7 +4,7 @@ package { 'nginx' :
 }
 
 # Configure server
-file_line { 'header line':
+-> file_line { 'header line':
   ensure => present,
   path   => '/etc/nginx/sites-available/default',
   line   => "	location / {
@@ -13,7 +13,7 @@ file_line { 'header line':
 }
 
 # Restart Service
-service { 'nginx':
+-> service { 'nginx':
   ensure => running,
   enable => true,
 }
