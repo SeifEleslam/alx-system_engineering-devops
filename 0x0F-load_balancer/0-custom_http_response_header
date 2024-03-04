@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2154 
 # install nginx and run it script
 
 # Update package lists and install Nginx
