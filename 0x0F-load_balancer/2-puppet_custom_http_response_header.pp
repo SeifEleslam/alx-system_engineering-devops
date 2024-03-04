@@ -17,7 +17,6 @@ file { '/var/www/html/index.html':
   mode    => '0644',
   content => 'Hello World!',
 }
-$hostname = $facts['networking']['hostname']
 # Configure server
 file { '/etc/nginx/sites-available/default':
   ensure  => file,
