@@ -1,45 +1,19 @@
-# Install nginx with puppet
+#puppet advance
 exec { 'update':
   command  => 'sudo apt-get update',
   provider => shell,
 }
-package { 'nginx' :
-  ensure   => present,
+-> package { 'nginx':
+  ensure => present,
 }
-# Configure the server block for our site.
-file { '/var/www/html':
-  ensure => directory,
-  owner  => root,
-  group  => root,
-  mode   => '0755',
+-> file_line { 'header line':
+  ensure => present,
+  path   => '/etc/nginx/sites-available/default',
+  line   => "	location / {
+  add_header X-Served-By ${hostname};",
+  match  => '^\tlocation / {',
 }
-# Create a simple index.html file to test the
-file { '/var/www/html/index.html':
-  ensure  => file,
-  owner   => root,
-  group   => root,
-  mode    => '0644',
-  content => 'Hello World!',
-}
-# Configure server
-file { '/etc/nginx/sites-available/default':
-  ensure  => file,
-  owner   => root,
-  group   => root,
-  mode    => '0644',
-  content => "
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
-    location / {
-      add_header X-Served-By ${hostname};
-    }}
-",
-}
-# Restart Service
-exec { 'restart_nginx':
+-> exec { 'restart service':
   command  => 'sudo service nginx restart',
   provider => shell,
 }
