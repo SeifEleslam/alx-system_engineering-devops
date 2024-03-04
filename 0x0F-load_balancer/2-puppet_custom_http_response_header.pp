@@ -4,7 +4,7 @@ exec { 'update':
   provider => shell,
 }
 package { 'nginx' :
-  ensure   => latest,
+  ensure   => present,
 }
 # Configure the server block for our site.
 file { '/var/www/html':
