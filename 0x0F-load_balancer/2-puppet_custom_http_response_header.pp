@@ -9,7 +9,7 @@ exec { 'update':
 }
 
 # Configure server
-file { '/etc/nginx/sites-available/default':
+-> file { '/etc/nginx/sites-available/default':
   ensure  => file,
   owner   => root,
   group   => root,
