@@ -17,23 +17,24 @@ file { '/var/www/html/index.html':
   mode    => '0644',
   content => 'Hello World!',
 }
+$hostname = $facts['networking']['hostname']
 # Configure server
 file { '/etc/nginx/sites-available/default':
   ensure  => file,
   owner   => root,
   group   => root,
   mode    => '0644',
-  content => '
+  content => "
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
     root /var/www/html;
     index index.html index.htm index.nginx-debian.html;
     location / {
-        add_header X-Served-By $HOSTNAME;
+        add_header X-Served-By ${hostname};
     }
 }
-',
+",
 }
 # Restart Service
 service { 'nginx':
