@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # debugging - 0
-cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+cp -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 service nginx restart
