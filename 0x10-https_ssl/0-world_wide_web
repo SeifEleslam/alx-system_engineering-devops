@@ -17,4 +17,3 @@ else
         do  show_me_ip "$sub" "$1" 
     done
 fi
-
