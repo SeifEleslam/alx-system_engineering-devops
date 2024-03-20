@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Changes nginx config 
+sed -i '1s/.*/user nginx;/' /etc/nginx/nginx.conf
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+kill 37
+chmod 604 /etc/nginx/nginx.conf
+su nginx -c "service nginx start"
