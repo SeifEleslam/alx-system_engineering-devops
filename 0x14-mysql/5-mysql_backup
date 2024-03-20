@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 # Saving data in case water ruins it
-# $archive_name=$(date +%d-%m-%Y) 
-# mysqldump -uroot -p$1 --all-databases > backup.sql
-# tar -czvf $archive_name.tar.gz backup.sql
-mysqldump -uroot -p"$1" --all-databases > backup.sql
-tar -cvzf "$(date +%d-%m-%Y)".tar.gz backup.sql
+mysqldump -uroot -p$1 --all-databases > backup.sql
+tar -czvf $(date +%d-%m-%Y).tar.gz backup.sql
