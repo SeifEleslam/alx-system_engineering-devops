@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Me as what u want
-su $1 -c whoami
+sudo -u $1 -c whoami
