@@ -22,6 +22,6 @@ if __name__ == "__main__":
                      user["username"],
                      todo["completed"],
                      todo["title"]])
-    with open("USER_ID.csv", "w", newline="") as f:
+    with open(f"{user['id']}.csv", "w", newline="") as f:
         writer = writer(f)
         writer.writerows(data)
