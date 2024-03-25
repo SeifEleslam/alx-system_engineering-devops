@@ -18,10 +18,10 @@ if __name__ == "__main__":
     user = request_data(f"users/{args[1]}", "GET", None).json()
     todos = request_data("todos", "GET", {'userId': args[1]}).json()
     for todo in todos:
-        data.append([f'"{todo["userId"]}"',
-                     f'"{user["username"]}"',
-                     f'"{todo["completed"]}"',
-                     f'"{todo["title"]}"'])
+        data.append([todo["userId"],
+                     user["username"],
+                     todo["completed"],
+                     todo["title"]])
     with open(f"{user['id']}.csv", "w", newline="") as f:
-        writer = writer(f)
+        writer = writer(f, quoting=1)
         writer.writerows(data)
