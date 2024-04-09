@@ -10,7 +10,7 @@ def top_ten(subreddit):
     """Get Titles of top 10 hot posts"""
 
     subreddit_info = get(
-        "https://www.reddit.com/r/{:s}/hot.json?limit=9".format(subreddit),
+        "https://www.reddit.com/r/{:s}/hot.json?limit=10".format(subreddit),
         headers={"User-Agent": "Custom-User-Agent"},
         allow_redirects=False)
 
