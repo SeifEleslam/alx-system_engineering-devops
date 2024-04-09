@@ -18,4 +18,4 @@ def top_ten(subreddit):
         print(None)
     else:
         for post in subreddit_info.json().get('data').get('children'):
-            print(post.get('data').get('title'))
+            print(post.get('data').get('titsle'))
