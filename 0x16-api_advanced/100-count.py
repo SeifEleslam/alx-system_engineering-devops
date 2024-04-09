@@ -37,4 +37,5 @@ def count_words(subreddit, word_list, after='', word_dict=None):
                 print("{}: {}".format(word, count))
         return
     return count_words(subreddit, word_list,
-                       "{}".format(posts[-1].get('data').get('name')), word_dict)
+                       "{}".format(posts[-1].get('data').get('name')),
+                       word_dict)
