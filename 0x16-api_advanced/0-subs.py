@@ -11,4 +11,4 @@ def number_of_subscribers(subreddit):
         f"https://www.reddit.com/r/{subreddit}/about.json",
         allow_redirects=False)
     return 0 if subreddit_info.status_code >= 300 else \
-        subreddit_info.get('data').get('subscribers')
+        subreddit_info.json().get('data').get('subscribers')
