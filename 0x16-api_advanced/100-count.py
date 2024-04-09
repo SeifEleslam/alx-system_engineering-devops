@@ -8,7 +8,8 @@ from requests import get
 
 def count_words(subreddit, word_list, after='', word_dict=None):
     """Get Titles of top 10 hot posts"""
-
+    if not word_list:
+        return
     subreddit_info = get(
         "https://www.reddit.com/r/{:s}/hot.json?limit=100&after={}"
         .format(subreddit, after),
@@ -29,7 +30,6 @@ def count_words(subreddit, word_list, after='', word_dict=None):
             if word_dict.get(word) is not None:
                 word_dict[word] += 1
     if len(li) == 0:
-        # Sort by value (ascending)
         word_dict = dict(
             sorted(word_dict.items(), key=lambda x: x[1], reverse=True))
         for word, count in word_dict.items():
@@ -38,7 +38,3 @@ def count_words(subreddit, word_list, after='', word_dict=None):
         return
     return count_words(subreddit, word_list,
                        "{}".format(posts[-1].get('data').get('name')), word_dict)
-
-
-count_words('python',
-            'react python [META] javascript scala no_results_for_this_one')
