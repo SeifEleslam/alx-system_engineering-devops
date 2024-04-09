@@ -9,7 +9,6 @@ def number_of_subscribers(subreddit):
     """Get Number of subscribers"""
     subreddit_info = requests.get(
         f"https://www.reddit.com/r/{subreddit}/about.json",
-        allow_redirects=False).json()
-    subreddit_data = subreddit_info.get('data')
-    return (subreddit_data.get('subscribers')
-            if subreddit_data and subreddit_data.get('subscribers') else 0)
+        allow_redirects=False)
+    return 0 if subreddit_info.status_code >= 300 else \
+        subreddit_info.get('data').get('subscribers')
