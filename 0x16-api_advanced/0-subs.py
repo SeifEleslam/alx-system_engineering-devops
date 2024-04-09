@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# Reddit API subscribers
+"""
+Reddit API subscribers
+"""
 import requests
 
 
