@@ -13,5 +13,5 @@ def number_of_subscribers(subreddit):
           if subreddit_data and subreddit_data.get('subscribers') else 0)
 
 
-if __name__ == "__main__":
-    number_of_subscribers("learnpython")
+# if __name__ == "__main__":
+#     number_of_subscribers("learnpython")
