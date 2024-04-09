@@ -10,7 +10,7 @@ def number_of_subscribers(subreddit):
     """Get Number of subscribers"""
 
     subreddit_info = get(
-        "https://www.reddit.com/r/{}/about.json".format(subreddit),
+        "https://www.reddit.com/r/{:s}/about.json".format(subreddit),
         headers={"User-Agent": "Custom-User-Agent"},
         allow_redirects=False)
 
