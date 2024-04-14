@@ -23,7 +23,7 @@ Think of a postmortem as an autopsy for your project or process. It's a structur
     - Action Items: Define clear steps to prevent similar issues in the future.
     - Lessons Learned: Summarize key takeaways for future projects.
 
-#Who Should Be Involved?
+## Who Should Be Involved?
 
 Anyone involved in the project or process can benefit from participating in a postmortem. This could include developers, designers, project managers, and even stakeholders.
 
